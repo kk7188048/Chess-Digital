@@ -20,6 +20,7 @@ export class GameManager {
         
     }
     removeUser(socket: WebSocket) {
+        this.users = this.users.filter(user => user !== socket)
         
     }
 
@@ -39,7 +40,7 @@ export class GameManager {
             }
             if(message.type === MOVE) {
                 const game = this.games.find(game => game.Player1 === socket || game.Player2 === socket);
-                game?.makeMove(socket, message.move);
+                game?.makeMove(socket, message.payload.move);
             }
 
         })
