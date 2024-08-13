@@ -31,7 +31,7 @@ const ChessBoard = ({ board, socket, setBoard, chess }: {
                                             payload: {
                                                 move: {
                                                     from,
-                                                to: squareRepresentation
+                                                    to: squareRepresentation
                                                 }
                                             }
                                         }))
@@ -46,8 +46,8 @@ const ChessBoard = ({ board, socket, setBoard, chess }: {
                                 key={j}
                                 className={`w-16 h-16 flex justify-center items-center ${(i + j) % 2 === 0 ? 'bg-brown-300' : 'bg-black'}`}>
                                 <div className='w-full justify-center flex h-full'>
-                                    <div className='h-full justify-center flex flex-col'>
-                                        {square ? `${square.color === 'w' ? 'White' : 'Black'} ${square.type.toUpperCase()}` : " "}
+                                    <div className="h-full justify-center flex flex-col">
+                                        {square ? <img className="w-4" src={`/${square?.color === "b" ? square?.type : `${square?.type?.toUpperCase()} copy`}.png`} /> : null}
                                     </div>
                                 </div>
                             </div>
